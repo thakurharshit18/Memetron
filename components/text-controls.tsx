@@ -4,7 +4,13 @@ import { RotateCcw, Type } from 'lucide-react'
 import { Button } from './ui/button'
 import { Label } from './ui/label'
 import { Input } from './ui/input'
-export default function TextControls() {
+
+
+interface TextControlsProps {
+  onAddText: ()=>void;
+
+}
+export default function TextControls({onAddText}:TextControlsProps) {
   return(   <>
   <Card>
   <CardHeader>

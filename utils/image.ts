@@ -21,3 +21,17 @@ export const loadImageFromFile = (file:File):Promise<HTMLImageElement> =>{
     
     })
 }
+
+export const CalculateStageSize = (img:HTMLImageElement)=>{
+    const maxWidth = 600;
+    const maxHeight = 400;
+    const aspectRatio = img.width / img.height;
+    let newWidth = maxWidth;
+    let newHeight = maxWidth/aspectRatio
+    if(newHeight>maxHeight){
+  newHeight= maxHeight;
+  newWidth= maxHeight*aspectRatio
+    }
+
+return {width:newWidth,height:newHeight}
+}
