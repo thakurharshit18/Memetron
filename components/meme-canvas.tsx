@@ -1,4 +1,5 @@
 import { Upload } from "lucide-react";
+import { Layer, Stage,Image as KonvaImage } from "react-konva";
 
 
 
@@ -20,6 +21,19 @@ export default function MemeCanvas({image}:MemeCanvasProps) {
   
   
     return (
-    <div>meme-canvas</div>
+    <div className="border-2 border-dashed border-gray-300 rounded-lg overflow-hidden"  style={{width:600,height:400}}>
+<Stage width={window.innerWidth} height={window.innerHeight}>
+  <Layer>
+
+<KonvaImage image={image} width={600} height={400}>
+
+</KonvaImage>
+
+  </Layer>
+</Stage>
+
+
+
+    </div>
   )
 }
