@@ -15,11 +15,11 @@ export default function TextControls({onAddText}:TextControlsProps) {
   <Card>
   <CardHeader>
     <CardTitle className='flex items-center gap-2'>
-        <Type className='w-5 h-5'/>
+        <Type className='w-5 h-5'/> Add Text
     </CardTitle>
   </CardHeader>
   <CardContent>
-   <Button className='w-full'>Add Text</Button>
+   <Button className='w-full' onClick={onAddText}>Add Text</Button>
   </CardContent>
 </Card>
   <Card>

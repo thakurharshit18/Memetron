@@ -1,6 +1,7 @@
 import { StageSize } from "@/types/meme";
 import { Upload } from "lucide-react";
 import { Layer, Stage,Image as KonvaImage } from "react-konva";
+import DragableText from "./dragabletext";
 
 
 
@@ -29,6 +30,7 @@ export default function MemeCanvas({image,stageSize}:MemeCanvasProps) {
 
 <KonvaImage image={image} width={stageSize.width} height={stageSize.height}>
 </KonvaImage>
+<DragableText/>
   </Layer>
 </Stage>
 
