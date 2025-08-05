@@ -11,7 +11,12 @@ import {RotateCcw, Upload} from "lucide-react";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
-export default function UploadControls() {
+
+
+interface UploadControlsProps{
+  onImageUpload:(event:React.ChangeEvent<HTMLInputElement>)=>void;
+}
+export default function UploadControls({onImageUpload}:UploadControlsProps) {
   return (
   <Card>
   <CardHeader>

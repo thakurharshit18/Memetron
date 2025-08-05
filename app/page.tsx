@@ -1,9 +1,15 @@
+"use client";
 import ExportControls from "@/components/exportControls";
+import MemeCanvas from "@/components/meme-canvas";
 import TextControls from "@/components/text-controls";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import UploadControls from "@/components/uploadControls";
+import { useMemeGenerator } from "@/hooks/useMemeGenerator";
 
 
 export default function Home() {
+  const {image,handleImageUpload} = useMemeGenerator();
+  console.log(image);
   return (
    <div className="min-h-screen bg-gray-50 p-4">
     <div className="max-w-6xl mx-auto">
@@ -18,11 +24,22 @@ export default function Home() {
 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
  
   <div className=" lg:col-span-1 space-y-4">
-  <UploadControls/>
+  <UploadControls onImageUpload={handleImageUpload}/>
   <TextControls/>
   <ExportControls/>
 </div>
-<div className="bg-blue-500 lg:col-span-2"></div>
+<div className="lg:col-span-2">
+  <Card>
+    <CardHeader>
+      <CardTitle>
+        Canvas
+      </CardTitle>
+    </CardHeader>
+    <CardContent className="flex justify-center">
+<MemeCanvas/>
+    </CardContent>
+  </Card>
+</div>
     </div>
 
 
