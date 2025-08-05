@@ -28,7 +28,8 @@ export default function UploadControls({onImageUpload}:UploadControlsProps) {
   <CardContent>
   <div>
      <Label>Choose Image(JPG/PNG)</Label>
-     <Input className="mt-1" type="file" accept="image.jpeg,image/png"/>
+     <Input className="mt-1" type="file"
+     onChange={onImageUpload} accept="image.jpeg,image/png"/>
   </div>
   <Button variant="outline" className="w-full bg-transparent">
   <RotateCcw className="w-4 h-4 mr-2"/>

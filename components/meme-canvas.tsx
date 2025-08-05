@@ -1,7 +1,11 @@
 import { Upload } from "lucide-react";
 
-export default function MemeCanvas() {
-  const image = null;
+
+
+interface MemeCanvasProps{
+    image:HTMLImageElement|null
+}
+export default function MemeCanvas({image}:MemeCanvasProps) {
   if(!image){
     return(
     <div className="border-2 border-dashed border-gray-300 rounded-lg overflow-hidden flex items-center justify-center bg-gray-100"

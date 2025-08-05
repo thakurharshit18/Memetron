@@ -31,12 +31,14 @@ export default function Home() {
 <div className="lg:col-span-2">
   <Card>
     <CardHeader>
+
+      
       <CardTitle>
         Canvas
       </CardTitle>
     </CardHeader>
     <CardContent className="flex justify-center">
-<MemeCanvas/>
+<MemeCanvas image={image}/>
     </CardContent>
   </Card>
 </div>
