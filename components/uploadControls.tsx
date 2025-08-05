@@ -15,7 +15,7 @@ export default function UploadControls() {
   return (
   <Card>
   <CardHeader>
-    <CardTitle className="flex items-center gap-2">Card Title
+    <CardTitle className="flex items-center gap-2">
     <Upload className="w-5 h-5"/>
     Upload Image
     </CardTitle>

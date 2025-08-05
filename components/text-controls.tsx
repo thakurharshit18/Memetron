@@ -1,23 +1,38 @@
 import React from 'react'
-import { Card,CardAction,CardContent,CardDescription,CardFooter,CardHeader,CardTitle } from './ui/card'
+import { Card,CardContent,CardHeader,CardTitle } from './ui/card'
+import { RotateCcw, Type } from 'lucide-react'
+import { Button } from './ui/button'
+import { Label } from './ui/label'
+import { Input } from './ui/input'
 export default function TextControls() {
   return(   <>
-
   <Card>
   <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Card Description</CardDescription>
-    <CardAction>Card Action</CardAction>
+    <CardTitle className='flex items-center gap-2'>
+        <Type className='w-5 h-5'/>
+    </CardTitle>
   </CardHeader>
   <CardContent>
-    <p>Card Content</p>
+   <Button className='w-full'>Add Text</Button>
   </CardContent>
-  <CardFooter>
-    <p>Card Footer</p>
-  </CardFooter>
 </Card>
-  
-  
+  <Card>
+  <CardHeader>
+   <CardTitle>Edit Text</CardTitle>
+  </CardHeader>
+  <CardContent>
+  <div className='space-y-4'>
+    <div>
+     <Label>Text Content</Label>
+     <Input  className="mt-1"  placeholder='Enter Meme Text...'/>
+  </div>
+
+  <Button variant="destructive" className="w-full">
+    Delete Text
+  </Button>
+  </div>
+  </CardContent>
+</Card>
   </>
   )
 }
