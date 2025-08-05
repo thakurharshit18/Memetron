@@ -1,4 +1,7 @@
-import Image from "next/image";
+import ExportControls from "@/components/exportControls";
+import TextControls from "@/components/text-controls";
+import UploadControls from "@/components/uploadControls";
+
 
 export default function Home() {
   return (
@@ -14,8 +17,10 @@ export default function Home() {
       </div>
 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
  
-  <div className="bg-red-500 lg:col-span-1">
-   ewafd 
+  <div className=" lg:col-span-1 space-y-4">
+  <UploadControls/>
+  <TextControls/>
+  <ExportControls/>
 </div>
 <div className="bg-blue-500 lg:col-span-2"></div>
     </div>
