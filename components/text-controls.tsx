@@ -4,14 +4,21 @@ import { RotateCcw, Type } from 'lucide-react'
 import { Button } from './ui/button'
 import { Label } from './ui/label'
 import { Input } from './ui/input'
+import { TextElement } from '@/types/meme'
 
 
 interface TextControlsProps {
   onAddText: ()=>void;
-
+  selectedId : string|null;
+  TextElement: TextElement[];
+  hasImage: boolean;
+  onUpdateText: (id:string,text:string)=>void
+  
 }
-export default function TextControls({onAddText}:TextControlsProps) {
-  return(   <>
+export default function TextControls({onAddText,selectedId,TextElement,onUpdateText,hasImage}:TextControlsProps) {
+  console.log(selectedId);
+  return(   
+  <>
   <Card>
   <CardHeader>
     <CardTitle className='flex items-center gap-2'>
@@ -22,7 +29,9 @@ export default function TextControls({onAddText}:TextControlsProps) {
    <Button className='w-full' onClick={onAddText}>Add Text</Button>
   </CardContent>
 </Card>
-  <Card>
+
+{selectedId && (
+ <Card>
   <CardHeader>
    <CardTitle>Edit Text</CardTitle>
   </CardHeader>
@@ -30,7 +39,10 @@ export default function TextControls({onAddText}:TextControlsProps) {
   <div className='space-y-4'>
     <div>
      <Label>Text Content</Label>
-     <Input  className="mt-1"  placeholder='Enter Meme Text...'/>
+     <Input  className="mt-1"  placeholder='Enter Meme Text...'
+     onChange={(e)=>onUpdateText(selectedId,e.target.value)}
+     
+     />
   </div>
 
   <Button variant="destructive" className="w-full">
@@ -39,6 +51,7 @@ export default function TextControls({onAddText}:TextControlsProps) {
   </div>
   </CardContent>
 </Card>
+)}
   </>
   )
 }

@@ -1,13 +1,24 @@
+import { TextElement } from "@/types/meme";
 import { Text } from "react-konva";
 
-export default function DragableText() {
+interface DraggableTextProps {
+  textProps: TextElement;
+  isSelected:boolean;
+  onSelect:()=>void,
+  onChange:(newAttrs:Partial<TextElement>)=>void;
+}
+export default function DraggableText({
+  textProps,
+  isSelected,
+  onSelect,
+  onChange
+}: DraggableTextProps) {
   return (
-  <>
-  <Text draggable text="Hello World" fontSize={50}  fill="white"/>
-  
-  
-  </>
-  
-  )
-
+    <>
+      <Text
+        draggable
+        {...textProps} 
+      />
+    </>
+  );
 }

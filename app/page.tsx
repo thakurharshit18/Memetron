@@ -8,8 +8,8 @@ import { useMemeGenerator } from "@/hooks/useMemeGenerator";
 
 
 export default function Home() {
-  const {image,handleImageUpload,stageSize,addText} = useMemeGenerator();
-  console.log(image);
+  const {image,handleImageUpload,stageSize,addText,selectedId,TextElement,updateText} = useMemeGenerator();
+  
   return (
    <div className="min-h-screen bg-gray-50 p-4">
     <div className="max-w-6xl mx-auto">
@@ -25,7 +25,13 @@ export default function Home() {
  
   <div className=" lg:col-span-1 space-y-4">
   <UploadControls onImageUpload={handleImageUpload}/>
-  <TextControls onAddText = {addText}/>
+  <TextControls 
+  hasImage = {!!image}
+  onAddText = {addText} 
+  selectedId = {selectedId}
+  TextElement = {TextElement}
+  onUpdateText = {updateText}
+  />
   <ExportControls/>
 </div>
 <div className="lg:col-span-2">
@@ -38,7 +44,8 @@ export default function Home() {
       </CardTitle>
     </CardHeader>
     <CardContent className="flex justify-center">
-<MemeCanvas image={image} stageSize={stageSize} />
+<MemeCanvas image={image} stageSize={stageSize} selectedId = {selectedId}
+textElements={TextElement} />
     </CardContent>
   </Card>
 </div>

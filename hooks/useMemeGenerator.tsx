@@ -2,6 +2,7 @@
 import { CalculateStageSize, loadImageFromFile } from "@/utils/image";
 import { useCallback, useState } from "react"
 import { StageSize, TextElement } from "@/types/meme";
+import { text } from "stream/consumers";
 export const useMemeGenerator = ()=>{
 
     const[image,setImage]= useState<HTMLImageElement|null>(null);
@@ -40,11 +41,18 @@ export const useMemeGenerator = ()=>{
         align:"center"
     }
     setTextElement((prev)=>[...prev,newText])
+    setSelectedId(newText.id);
     },[stageSize]);
+    const updateText = useCallback((id:string,newText:string)=>{
+        setTextElement((prev)=>prev.map((el)=>(el.id===id?{...el,text: newText}:el)))
+    },[]) 
     return {
         image,
+        TextElement,
         handleImageUpload,
         stageSize,
-        addText
+        selectedId,
+        addText,
+        updateText  
     }
 }
