@@ -9,13 +9,15 @@ interface MemeCanvasProps {
   image: HTMLImageElement | null;
   textElements: TextElement[];
   stageSize: StageSize;
- selectedId : string|null
+ selectedId : string|null,
+ onSelectText: (id:string|null)=>void
 }
 export default function MemeCanvas({
   image,
   textElements,
   stageSize,
-  selectedId
+  selectedId,
+  onSelectText
   
 }: MemeCanvasProps) {
   if (!image) {
@@ -48,6 +50,7 @@ export default function MemeCanvas({
             <DraggableText
               key={textEl.id}
               textProps={textEl}
+              onSelect={()=>onSelectText(textEl.id)}
               
             />
           ))}

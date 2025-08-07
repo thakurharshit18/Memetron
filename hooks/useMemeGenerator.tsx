@@ -46,6 +46,10 @@ export const useMemeGenerator = ()=>{
     const updateText = useCallback((id:string,newText:string)=>{
         setTextElement((prev)=>prev.map((el)=>(el.id===id?{...el,text: newText}:el)))
     },[]) 
+    const deleteText = useCallback((id:string)=>{
+        setTextElement((prev)=>prev.filter((el)=>el.id!==id))
+        setSelectedId(null)
+    },[])
     return {
         image,
         TextElement,
@@ -53,6 +57,8 @@ export const useMemeGenerator = ()=>{
         stageSize,
         selectedId,
         addText,
-        updateText  
+        updateText,
+        setSelectedId,
+        deleteText
     }
 }

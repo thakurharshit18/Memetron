@@ -8,7 +8,9 @@ import { useMemeGenerator } from "@/hooks/useMemeGenerator";
 
 
 export default function Home() {
-  const {image,handleImageUpload,stageSize,addText,selectedId,TextElement,updateText} = useMemeGenerator();
+  const {image,handleImageUpload,stageSize,addText,selectedId,TextElement,updateText,setSelectedId,
+    deleteText
+  } = useMemeGenerator();
   
   return (
    <div className="min-h-screen bg-gray-50 p-4">
@@ -30,7 +32,8 @@ export default function Home() {
   onAddText = {addText} 
   selectedId = {selectedId}
   TextElement = {TextElement}
-  onUpdateText = {updateText}
+  onUpdateText = {updateText} 
+  onDeleteText = {deleteText}
   />
   <ExportControls/>
 </div>

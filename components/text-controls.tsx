@@ -12,11 +12,13 @@ interface TextControlsProps {
   selectedId : string|null;
   TextElement: TextElement[];
   hasImage: boolean;
-  onUpdateText: (id:string,text:string)=>void
-  
+  onUpdateText: (id:string,text:string)=>void,
+  onDeleteText:(id:string)=>void,
+
 }
-export default function TextControls({onAddText,selectedId,TextElement,onUpdateText,hasImage}:TextControlsProps) {
+export default function TextControls({onAddText,selectedId,TextElement,onUpdateText,hasImage,onDeleteText}:TextControlsProps) {
   console.log(selectedId);
+const selectedText = TextElement.find((el)=>el.id===selectedId)
   return(   
   <>
   <Card>
@@ -26,11 +28,12 @@ export default function TextControls({onAddText,selectedId,TextElement,onUpdateT
     </CardTitle>
   </CardHeader>
   <CardContent>
-   <Button className='w-full' onClick={onAddText}>Add Text</Button>
+   <Button className='w-full' onClick={onAddText} disabled={!hasImage}>Add Text</Button>
   </CardContent>
 </Card>
 
-{selectedId && (
+{selectedId &&
+selectedText && (
  <Card>
   <CardHeader>
    <CardTitle>Edit Text</CardTitle>
@@ -40,12 +43,13 @@ export default function TextControls({onAddText,selectedId,TextElement,onUpdateT
     <div>
      <Label>Text Content</Label>
      <Input  className="mt-1"  placeholder='Enter Meme Text...'
+     value={selectedText.text}
      onChange={(e)=>onUpdateText(selectedId,e.target.value)}
      
      />
   </div>
 
-  <Button variant="destructive" className="w-full">
+  <Button variant="destructive" className="w-full" onClick={()=>onDeleteText(selectedId)}>
     Delete Text
   </Button>
   </div>
